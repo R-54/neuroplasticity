@@ -24,7 +24,6 @@ const MenuBar = ({
   handleDrawerToggle,
   mobileOpen,
   container,
-  theme,
 }) => {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
@@ -50,7 +49,7 @@ const MenuBar = ({
 
   return (
     <>
-      <AppBar component="nav" sx={{ backgroundColor: 'white' }}>
+      <AppBar component="nav" color="primary">
         <Toolbar>
           <IconButton
             color="inherit"
@@ -70,9 +69,7 @@ const MenuBar = ({
           />
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff" }}>
-                {item}
-              </Button>
+              <Button key={item}>{item}</Button>
             ))}
           </Box>
         </Toolbar>

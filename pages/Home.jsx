@@ -8,14 +8,42 @@ import MenuBar from "./components/menuBar";
 import WelcomeBlock from "./components/welcomeBlock";
 import TeamBlock from "./components/teamBlock";
 import ProgramsBlock from "./components/programsBlock";
-import DoctorRightBlock from "./components/doctorRightBlock";
-import DoctorLeftBlock from "./components/doctorLeftBlock";
+import DoctorsInfoBlock from "./components/doctorsInfoBlock";
 import ContactBlock from "./components/contactBlock";
 
 const drawerWidth = 240;
 const navItems = ["Inicio", "Conocenos", "Programas", "Contactanos"];
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: {
+    primary: {
+      light: "#757ce8",
+      main: "#FFF",
+      dark: "#002884",
+      contrastText: "#000",
+    },
+    secondary: {
+      light: "#ff7961",
+      main: "#ff735c",
+      dark: "#ba000d",
+      contrastText: "#FFF",
+    },
+  },
+});
+
+theme.typography.h4 = {
+  fontSize: "34px",
+  [theme.breakpoints.between("xs", "sm")]: {
+    fontSize: "22px",
+  },
+};
+
+theme.typography.h6 = {
+  fontSize: "20px",
+  [theme.breakpoints.between("xs", "sm")]: {
+    fontSize: "18px",
+  },
+};
 
 export default function Home(props) {
   const { window } = props;
@@ -42,17 +70,15 @@ export default function Home(props) {
         />
 
         <Grid container spacing={0}>
-          <WelcomeBlock theme={theme} />
+          <WelcomeBlock />
 
-          <TeamBlock theme={theme} />
+          <TeamBlock />
 
-          <ProgramsBlock theme={theme} />
+          <ProgramsBlock />
 
-          <DoctorRightBlock theme={theme} />
+          <DoctorsInfoBlock />
 
-          <DoctorLeftBlock theme={theme} />
-
-          <ContactBlock theme={theme} />
+          <ContactBlock />
         </Grid>
       </Container>
     </ThemeProvider>

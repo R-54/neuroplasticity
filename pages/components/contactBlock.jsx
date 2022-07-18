@@ -1,128 +1,86 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Paper from "@mui/material/Paper";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import TextField from "@mui/material/TextField";
-import TextareaAutosize from "@mui/material/TextareaAutosize";
-import Button from "@mui/material/Button";
+import Button from "./styledComponents/button";
 import SendIcon from "@mui/icons-material/Send";
+import PostIt, { Title } from "./styledComponents/postIt";
+import GridItem from "./styledComponents/gridItem";
+import SocialMediaBox from "./styledComponents/socialMediaBox";
 
-const ContactBlock = ({ theme }) => {
+const ContactBlock = () => {
+  const styles = {
+    gridContainer: {
+      height: "100vh",
+    },
+    icon: { marginRight: "32px" },
+  };
   return (
     <>
-      <Grid
-        item
-        xs={12}
-        sx={{
-          height: "100vh",
-        }}
-      >
-        <Grid container spacing={0} sx={{ minHeight: "100%" }}>
-          <Grid
-            item
-            md={12}
-            lg={6}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              flexDirection: "column",
-              backgroundColor: "#93cfd9",
-              width: "100%",
-              height: "100vh",
-              [theme.breakpoints.between("xs", "md")]: {
-                height: "50vh",
-              },
-            }}
-          >
-            <Typography
-              variant="h5"
-              component="div"
-              sx={{
-                fontWeight: "bold",
-                marginBottom: "32px",
-                color: "white",
-              }}
+      <Grid container item xs={12} sx={styles.gridContainer}>
+        <GridItem
+          item
+          md={12}
+          lg={6}
+          backgroundColor="#93cfd9"
+          direction="column"
+        >
+          <Title variant="h6" component="div">
+            Tambien nos puedes contactar por email
+          </Title>
+          <PostIt elevation={3}>
+            <TextField label="Nombre completo" sx={{ marginBottom: "24px" }} />
+            <TextField label="Email" sx={{ marginBottom: "24px" }} />
+            <TextField label="Mensaje" sx={{ marginBottom: "24px" }} />
+            <Button
+              variant="contained"
+              size="large"
+              endIcon={<SendIcon />}
+              color="secondary"
             >
-              Tambien nos puedes contactar por email
-            </Typography>
-            <Paper
-              elevation={3}
-              sx={{
-                width: "400px",
-                padding: "48px",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
+              Enviar
+            </Button>
+          </PostIt>
+        </GridItem>
+        <GridItem
+          item
+          md={12}
+          lg={6}
+          backgroundColor="#ff735c"
+          direction="column"
+        >
+          <Title variant="h4" component="div" color="white">
+            Siguenos en nuestras redes
+          </Title>
+          <SocialMediaBox>
+            <YouTubeIcon fontSize="inherit" sx={styles.icon} />
+            <InstagramIcon
+              fontSize="inherit"
+              sx={styles.icon}
+              onClick={() => {
+                window.location.href =
+                  "https://www.instagram.com/neuroplasticit_y/";
               }}
-            >
-              <TextField
-                label="Nombre completo"
-                sx={{ marginBottom: "24px" }}
-              />
-              <TextField label="Email" sx={{ marginBottom: "24px" }} />
-              <TextareaAutosize
-                aria-label="empty textarea"
-                placeholder="Mensaje"
-                minRows={10}
-                style={{ width: "100%" }}
-              />
-              <Button
-                variant="contained"
-                size="large"
-                endIcon={<SendIcon />}
-                sx={{
-                  fontWeight: "bold",
-                  borderRadius: "40px",
-                  marginTop: "24px",
-                }}
-              >
-                Enviar
-              </Button>
-            </Paper>
-          </Grid>
-          <Grid
-            item
-            md={12}
-            lg={6}
-            sx={{
-              height: "100%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              flexDirection: "column",
-              backgroundColor: "#ff735c",
-              color: "white",
-              width: "100%",
-              height: "100vh",
-              [theme.breakpoints.between("xs", "md")]: {
-                height: "50vh",
-              },
-            }}
-          >
-            <Typography
-              variant="h4"
-              component="div"
-              sx={{
-                fontWeight: "bold",
-                marginBottom: "32px",
+            />
+            <FacebookIcon
+              fontSize="inherit"
+              sx={styles.icon}
+              onClick={() => {
+                window.location.href =
+                  "https://www.facebook.com/neuroplasticit_y/";
               }}
-            >
-              Siguenos en nuestras redes
-            </Typography>
-            <Box>
-              <YouTubeIcon sx={{ fontSize: "52px", marginRight: "32px" }} />
-              <InstagramIcon sx={{ fontSize: "52px", marginRight: "32px" }} />
-              <FacebookIcon sx={{ fontSize: "52px", marginRight: "32px" }} />
-              <WhatsAppIcon sx={{ fontSize: "52px", marginRight: "32px" }} />
-            </Box>
-          </Grid>
-        </Grid>
+            />
+            <WhatsAppIcon
+              fontSize="inherit"
+              onClick={() => {
+                window.location.href = "https://wa.me/+573183207016";
+              }}
+            />
+          </SocialMediaBox>
+        </GridItem>
       </Grid>
     </>
   );

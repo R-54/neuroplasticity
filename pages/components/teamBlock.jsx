@@ -1,90 +1,32 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import Paper from "@mui/material/Paper";
+import PostIt, { Title, Body } from "./styledComponents/postIt";
+import PhotoPaper from "./styledComponents/photoPaper";
+import GridItem from "./styledComponents/gridItem";
 
-const TeamBlock = ({ theme }) => {
+const TeamBlock = () => {
   return (
     <>
       <Grid container item xs={12}>
-        <Grid
-          item
-          md={12}
-          lg={6}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "#FFF7C9",
-            height: "100vh",
-            width: "100%",
-          }}
-        >
-          <Paper
-            elevation={3}
-            sx={{
-              width: "450px",
-              padding: "48px",
-              [theme.breakpoints.between("xs", "sm")]: {
-                width: "300px",
-              },
-            }}
-          >
-            <Typography
-              variant="h4"
-              component="div"
-              sx={{
-                fontWeight: "bold",
-                marginBottom: "32px",
-              }}
-            >
+        <GridItem item md={12} lg={6} backgroundColor="#93CFD9">
+          <PostIt elevation={3}>
+            <Title variant="h4" component="div">
               ¿Quienes somos?
-            </Typography>
-            <Typography
-              gutterBottom
-              variant="h6"
-              component="div"
-              sx={{
-                maxWidth: "max-content",
-                textAlign: "justify",
-                textJustify: "inter-word",
-              }}
-            >
+            </Title>
+            <Body variant="h6" component="div">
               Somos el mejor equipo terapéutico idoneo del eje cafetero con un
               gran engrama de compromiso y responsabilidad, un alto propósito de
               ofrecer servicios de rehabilitación integral y neurodesarrollo.
-            </Typography>
-          </Paper>
-        </Grid>
-        <Grid
-          item
-          md={12}
-          lg={6}
-          sx={{
-            height: "100vh",
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Paper
-            elevatiom={5}
-            sx={{
-              backgroundImage: "url(/images/team-no-border.png)",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              backgroundPosition: "50% 0",
-              width: "500px",
-              height: "700px",
-              border: "solid #FFF7C9 8px",
-              [theme.breakpoints.between("xs", "sm")]: {
-                width: "300px",
-                height: "400px",
-              },
-            }}
+            </Body>
+          </PostIt>
+        </GridItem>
+        <GridItem item md={12} lg={6}>
+          <PhotoPaper
+            elevation={5}
+            url="/images/team-no-border.png"
+            borderColor="#93CFD9"
           />
-        </Grid>
+        </GridItem>
       </Grid>
     </>
   );

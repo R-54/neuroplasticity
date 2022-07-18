@@ -1,305 +1,112 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Paper from "@mui/material/Paper";
-import Button from "@mui/material/Button";
+import Button from "./styledComponents/button";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import PoolIcon from "@mui/icons-material/Pool";
 import SpatialAudioIcon from "@mui/icons-material/SpatialAudio";
 import SportsGymnasticsIcon from "@mui/icons-material/SportsGymnastics";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import AddIcon from "@mui/icons-material/Add";
+import PostIt, { Title, Body } from "./styledComponents/postIt";
+import GridItem from "./styledComponents/gridItem";
 
-const ProgramsBlock = ({ theme }) => {
+const ProgramPostIt = ({ title, body, icon, button }) => {
+  return (
+    <PostIt elevation={5}>
+      {icon}
+      <Title variant="h4" component="div">
+        {title}
+      </Title>
+      <Body gutterBottom variant="h6" component="div">
+        {body}
+      </Body>
+      {button}
+    </PostIt>
+  );
+};
+
+const ProgramsBlock = () => {
+  const styles = {
+    icon: {
+      fontSize: "34px",
+      marginBottom: "24px",
+    },
+    gridItem: { backgroundColor: "#D1EBF0", minHeight: "100vh" },
+    gridContainer: {
+      minHeight: "100vh",
+      width: "100%",
+      alignItems: "center",
+      paddingTop: "52px",
+      paddingBottom: "52px",
+    },
+  };
+
+  const knowMoreButton = (id) => (
+    <Button
+      variant="contained"
+      size="large"
+      color="secondary"
+      endIcon={<AddIcon />}
+      onClick={() => {
+        document.getElementById(id).scrollIntoView();
+      }}
+    >
+      Saber mas
+    </Button>
+  );
+
+  const contactButton = (
+    <Button
+      variant="contained"
+      size="large"
+      color="secondary"
+      endIcon={<WhatsAppIcon />}
+      onClick={() => {
+        window.location.href = "https://wa.me/+573183207016";
+      }}
+    >
+      Contactanos
+    </Button>
+  );
+
   return (
     <>
-      <Grid item xs={12} sx={{ backgroundColor: "#E6FAD7" }}>
-        <Grid
-          container
-          spacing={0}
-          sx={{
-            minHeight: "100vh",
-            width: "100%",
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <Grid
-            item
-            md={12}
-            lg={3}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
-              height: "50%",
-              paddingTop: '32px',
-              paddingBottom: '32px',
-            }}
-          >
-            <Paper
-              elevation={5}
-              sx={{
-                width: "400px",
-                padding: "48px",
-                textAlign: "center",
-              }}
-            >
-              <Typography
-                variant="h4"
-                component="div"
-                sx={{
-                  fontWeight: "bold",
-                  marginBottom: "32px",
-                }}
-              >
-                Programas
-              </Typography>
-              <Typography
-                gutterBottom
-                variant="h6"
-                component="div"
-                sx={{
-                  maxWidth: "max-content",
-                  textAlign: "justify",
-                  textJustify: "inter-word",
-                }}
-              >
-                Conoce los distintos servicios que tenemos para ti.
-              </Typography>
-              <Typography
-                gutterBottom
-                variant="h6"
-                component="div"
-                sx={{
-                  fontWeight: "bold",
-                }}
-              >
-                ¿No sabes que programa necesitas?
-              </Typography>
-              <Typography
-                gutterBottom
-                variant="h6"
-                component="div"
-                sx={{
-                  maxWidth: "max-content",
-                  textAlign: "justify",
-                  textJustify: "inter-word",
-                  marginBottom: "32px",
-                }}
-              >
-                Comunicate con nosotros y con gusto te asesoraremos.
-              </Typography>
-              <Button
-                variant="contained"
-                size="large"
-                endIcon={<WhatsAppIcon />}
-                sx={{
-                  backgroundColor: "#47C756",
-                  fontWeight: "bold",
-                  borderRadius: "40px",
-                }}
-              >
-                Contactanos
-              </Button>
-            </Paper>
-          </Grid>
-          <Grid
-            item
-            md={12}
-            lg={3}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
-              height: "50%",
-              paddingTop: '32px',
-              paddingBottom: '32px',
-            }}
-          >
-            <Paper
-              elevation={5}
-              sx={{
-                width: "400px",
-                padding: "48px",
-                textAlign: "center",
-              }}
-            >
-              <PoolIcon
-                sx={{
-                  fontSize: "34px",
-                  marginBottom: "24px",
-                }}
-              />
-              <Typography
-                variant="h4"
-                component="div"
-                sx={{
-                  fontWeight: "bold",
-                  marginBottom: "32px",
-                }}
-              >
-                Fisioterapia
-              </Typography>
-              <Typography
-                gutterBottom
-                variant="h6"
-                component="div"
-                sx={{
-                  maxWidth: "max-content",
-                  textAlign: "justify",
-                  textJustify: "inter-word",
-                  marginBottom: "32px",
-                }}
-              >
-                Conoce los distintos servicios que tenemos para ti.
-              </Typography>
-              <Button
-                variant="contained"
-                size="large"
-                endIcon={<AddIcon />}
-                sx={{
-                  backgroundColor: "#7E9ABF",
-                  fontWeight: "bold",
-                  borderRadius: "40px",
-                }}
-              >
-                Saber mas
-              </Button>
-            </Paper>
-          </Grid>
-          <Grid
-            item
-            md={12}
-            lg={3}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
-              height: "50%",
-              paddingTop: '32px',
-              paddingBottom: '32px',
-            }}
-          >
-            <Paper
-              elevation={5}
-              sx={{
-                width: "400px",
-                padding: "48px",
-                textAlign: "center",
-              }}
-            >
-              <SportsGymnasticsIcon
-                sx={{
-                  fontSize: "34px",
-                  marginBottom: "24px",
-                }}
-              />
-              <Typography
-                variant="h4"
-                component="div"
-                sx={{
-                  fontWeight: "bold",
-                  marginBottom: "32px",
-                }}
-              >
-                Terapia Ocupacional
-              </Typography>
-              <Typography
-                gutterBottom
-                variant="h6"
-                component="div"
-                sx={{
-                  maxWidth: "max-content",
-                  textAlign: "justify",
-                  textJustify: "inter-word",
-                  marginBottom: "32px",
-                }}
-              >
-                Conoce los distintos servicios que tenemos para ti.
-              </Typography>
-              <Button
-                variant="contained"
-                size="large"
-                endIcon={<AddIcon />}
-                sx={{
-                  backgroundColor: "#F2C166",
-                  fontWeight: "bold",
-                  borderRadius: "40px",
-                }}
-              >
-                Saber mas
-              </Button>
-            </Paper>
-          </Grid>
-          <Grid
-            item
-            md={12}
-            lg={3}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
-              height: "50%",
-              paddingTop: '32px',
-              paddingBottom: '32px',
-            }}
-          >
-            <Paper
-              elevation={5}
-              sx={{
-                width: "400px",
-                padding: "48px",
-                textAlign: "center",
-              }}
-            >
-              <SpatialAudioIcon
-                sx={{
-                  fontSize: "34px",
-                  marginBottom: "24px",
-                }}
-              />
-              <Typography
-                variant="h4"
-                component="div"
-                sx={{
-                  fontWeight: "bold",
-                  marginBottom: "32px",
-                }}
-              >
-                Fonoaudiologia
-              </Typography>
-              <Typography
-                gutterBottom
-                variant="h6"
-                component="div"
-                sx={{
-                  maxWidth: "max-content",
-                  textAlign: "justify",
-                  textJustify: "inter-word",
-                  marginBottom: "32px",
-                }}
-              >
-                Conoce los distintos servicios que tenemos para ti.
-              </Typography>
-              <Button
-                variant="contained"
-                size="large"
-                endIcon={<AddIcon />}
-                sx={{
-                  backgroundColor: "#D98982",
-                  fontWeight: "bold",
-                  borderRadius: "40px",
-                }}
-              >
-                Saber mas
-              </Button>
-            </Paper>
-          </Grid>
+      <Grid item xs={12} sx={styles.gridItem}>
+        <Grid container rowSpacing={10} sx={styles.gridContainer}>
+          <GridItem item md={12} lg={3} height="50%">
+            <ProgramPostIt
+              title="Programas"
+              body="Conoce los distintos servicios que tenemos para ti. ¿No sabes
+              que programa necesitas? Comunicate con nosotros y con gusto te
+              asesoraremos."
+              icon={<CalendarMonthIcon sx={styles.icon} />}
+              button={contactButton}
+            />
+          </GridItem>
+          <GridItem item md={12} lg={3} height="50%">
+            <ProgramPostIt
+              title="Fisioterapia"
+              body="Conoce los distintos servicios que tenemos para ti."
+              icon={<PoolIcon sx={styles.icon} />}
+              button={knowMoreButton("doctor1")}
+            />
+          </GridItem>
+          <GridItem item md={12} lg={3} height="50%">
+            <ProgramPostIt
+              title="Terapia Ocupacional"
+              body="Conoce los distintos servicios que tenemos para ti."
+              icon={<SportsGymnasticsIcon sx={styles.icon} />}
+              button={knowMoreButton("doctor1")}
+            />
+          </GridItem>
+          <GridItem item md={12} lg={3} height="50%">
+            <ProgramPostIt
+              title="Fonoaudiologia"
+              body="Conoce los distintos servicios que tenemos para ti."
+              icon={<SpatialAudioIcon sx={styles.icon} />}
+              button={knowMoreButton("doctor2")}
+            />
+          </GridItem>
         </Grid>
       </Grid>
     </>
