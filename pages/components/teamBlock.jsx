@@ -4,10 +4,10 @@ import PostIt, { Title, Body } from "./styledComponents/postIt";
 import PhotoPaper from "./styledComponents/photoPaper";
 import GridItem from "./styledComponents/gridItem";
 
-const TeamBlock = () => {
+const TeamBlock = (props) => {
   return (
     <>
-      <Grid container item xs={12}>
+      <Grid container item xs={12} {...props}>
         <GridItem item md={12} lg={6} backgroundColor="#93CFD9">
           <PostIt elevation={3}>
             <Title variant="h4" component="div">
@@ -24,7 +24,7 @@ const TeamBlock = () => {
           <PhotoPaper
             elevation={5}
             url="/images/team-no-border.png"
-            borderColor="#93CFD9"
+            border="#93CFD9"
           />
         </GridItem>
       </Grid>

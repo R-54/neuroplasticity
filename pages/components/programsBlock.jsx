@@ -25,7 +25,7 @@ const ProgramPostIt = ({ title, body, icon, button }) => {
   );
 };
 
-const ProgramsBlock = () => {
+const ProgramsBlock = (props) => {
   const styles = {
     icon: {
       fontSize: "34px",
@@ -71,7 +71,7 @@ const ProgramsBlock = () => {
 
   return (
     <>
-      <Grid item xs={12} sx={styles.gridItem}>
+      <Grid item xs={12} sx={styles.gridItem} {...props}>
         <Grid container rowSpacing={10} sx={styles.gridContainer}>
           <GridItem item md={12} lg={3} height="50%">
             <ProgramPostIt

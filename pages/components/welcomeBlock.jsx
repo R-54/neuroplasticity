@@ -5,10 +5,10 @@ import { Body } from "./styledComponents/postIt";
 import Logo from "./styledComponents/logo";
 import GridItem from "./styledComponents/gridItem";
 
-const WelcomeBlock = () => {
+const WelcomeBlock = (props) => {
   return (
     <>
-      <GridItem container item xs={12} direction="column">
+      <GridItem container item xs={12} direction="column" {...props}>
         <Logo elevation={0} />
         <Body gutterBottom variant="h6" component="div" pt="12px">
           Rehabilitación neurológica integral
@@ -18,7 +18,9 @@ const WelcomeBlock = () => {
           size="large"
           endIcon={<WhatsAppIcon />}
           color="secondary"
-          onClick={() => {window.location.href = 'https://wa.me/+573183207016'}}
+          onClick={() => {
+            window.location.href = "https://wa.me/+573183207016";
+          }}
         >
           Agenda una cita ahora
         </Button>

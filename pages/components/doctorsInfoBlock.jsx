@@ -38,7 +38,7 @@ const DoctorBlock = ({ title, body, url, color, id }) => {
           </PostIt>
         </GridItem>
         <GridItem item md={12} lg={6}>
-          <PhotoPaper elevation={5} url={url} borderColor={color} />
+          <PhotoPaper elevation={5} url={url} border={color} />
         </GridItem>
       </Grid>
     </>

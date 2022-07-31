@@ -11,7 +11,7 @@ import PostIt, { Title } from "./styledComponents/postIt";
 import GridItem from "./styledComponents/gridItem";
 import SocialMediaBox from "./styledComponents/socialMediaBox";
 
-const ContactBlock = () => {
+const ContactBlock = (props) => {
   const styles = {
     gridContainer: {
       height: "100vh",
@@ -20,32 +20,9 @@ const ContactBlock = () => {
   };
   return (
     <>
-      <Grid container item xs={12} sx={styles.gridContainer}>
+      <Grid container item xs={12} sx={styles.gridContainer} {...props}>
         <GridItem
-          item
-          md={12}
-          lg={6}
-          backgroundColor="#93cfd9"
-          direction="column"
-        >
-          <Title variant="h6" component="div">
-            Tambien nos puedes contactar por email
-          </Title>
-          <PostIt elevation={3}>
-            <TextField label="Nombre completo" sx={{ marginBottom: "24px" }} />
-            <TextField label="Email" sx={{ marginBottom: "24px" }} />
-            <TextField label="Mensaje" sx={{ marginBottom: "24px" }} />
-            <Button
-              variant="contained"
-              size="large"
-              endIcon={<SendIcon />}
-              color="secondary"
-            >
-              Enviar
-            </Button>
-          </PostIt>
-        </GridItem>
-        <GridItem
+          container
           item
           md={12}
           lg={6}
@@ -80,6 +57,31 @@ const ContactBlock = () => {
               }}
             />
           </SocialMediaBox>
+        </GridItem>
+        <GridItem
+          container
+          item
+          md={12}
+          lg={6}
+          backgroundColor="#93cfd9"
+          direction="column"
+        >
+          <Title variant="h6" component="div">
+            Tambien nos puedes contactar por email
+          </Title>
+          <PostIt elevation={3}>
+            <TextField label="Nombre completo" sx={{ marginBottom: "24px" }} />
+            <TextField label="Email" sx={{ marginBottom: "24px" }} />
+            <TextField label="Mensaje" sx={{ marginBottom: "24px" }} />
+            <Button
+              variant="contained"
+              size="large"
+              endIcon={<SendIcon />}
+              color="secondary"
+            >
+              Enviar
+            </Button>
+          </PostIt>
         </GridItem>
       </Grid>
     </>

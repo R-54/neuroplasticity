@@ -12,21 +12,32 @@ import DoctorsInfoBlock from "./components/doctorsInfoBlock";
 import ContactBlock from "./components/contactBlock";
 
 const drawerWidth = 240;
-const navItems = ["Inicio", "Conocenos", "Programas", "Contactanos"];
+const sections = {
+  WELCOME_BLOCK: "Inicio",
+  TEAM_BLOCK: "Conocenos",
+  PROGRAMS_BLOCK: "Programas",
+  CONTACT_BLOCK: "Contacto",
+};
+const navItems = [
+  sections.WELCOME_BLOCK,
+  sections.TEAM_BLOCK,
+  sections.PROGRAMS_BLOCK,
+  sections.CONTACT_BLOCK,
+];
 
 const theme = createTheme({
   palette: {
     primary: {
       light: "#757ce8",
-      main: "#FFF",
+      main: "#FFFFFF",
       dark: "#002884",
-      contrastText: "#000",
+      contrastText: "#000000",
     },
     secondary: {
       light: "#ff7961",
       main: "#ff735c",
       dark: "#ba000d",
-      contrastText: "#FFF",
+      contrastText: "#FFFFFF",
     },
   },
 });
@@ -70,15 +81,15 @@ export default function Home(props) {
         />
 
         <Grid container spacing={0}>
-          <WelcomeBlock />
+          <WelcomeBlock id={sections.WELCOME_BLOCK} />
 
-          <TeamBlock />
+          <TeamBlock id={sections.TEAM_BLOCK} />
 
-          <ProgramsBlock />
+          <ProgramsBlock id={sections.PROGRAMS_BLOCK} />
 
           <DoctorsInfoBlock />
 
-          <ContactBlock />
+          <ContactBlock id={sections.CONTACT_BLOCK} />
         </Grid>
       </Container>
     </ThemeProvider>

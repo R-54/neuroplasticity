@@ -2,7 +2,7 @@ import * as React from "react";
 import { useTheme, styled, ThemeProvider } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 
-const CustomPaper = styled(Paper)(({ theme, url, borderColor }) => ({
+const CustomPaper = styled(Paper)(({ theme, url, border }) => ({
   width: "500px",
   height: "700px",
   padding: "48px",
@@ -12,7 +12,7 @@ const CustomPaper = styled(Paper)(({ theme, url, borderColor }) => ({
   backgroundSize: "cover",
   backgroundPosition: "50% 0",
   borderRadius: "40px",
-  border: `solid ${borderColor} 8px`,
+  border: `solid ${border} 8px`,
   [theme.breakpoints.between("xs", "sm")]: {
     width: "300px",
     height: "400px",

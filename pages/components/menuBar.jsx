@@ -1,11 +1,5 @@
 import * as React from "react";
-import CssBaseline from "@mui/material/CssBaseline";
-import Grid from "@mui/material/Grid";
-import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
 import AppBar from "@mui/material/AppBar";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
@@ -18,27 +12,37 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 
+const redirectHandler = (id) => {
+  document.getElementById(id).scrollIntoView();
+};
+
 const MenuBar = ({
   drawerWidth,
-  navItems,
+  navItems = [],
   handleDrawerToggle,
   mobileOpen,
   container,
 }) => {
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+    <Box
+      onClick={handleDrawerToggle}
+      sx={{ textAlign: "center", paddingTop: "12px" }}
+    >
       <img
         src={"/images/letras.png"}
         alt={"alt"}
         style={{
-          width: "100px",
+          width: "150px",
         }}
       />
       <Divider />
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
+            <ListItemButton
+              sx={{ textAlign: "center" }}
+              onClick={() => redirectHandler(item)}
+            >
               <ListItemText primary={item} />
             </ListItemButton>
           </ListItem>
@@ -50,7 +54,7 @@ const MenuBar = ({
   return (
     <>
       <AppBar component="nav" color="primary">
-        <Toolbar>
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -69,7 +73,13 @@ const MenuBar = ({
           />
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
-              <Button key={item}>{item}</Button>
+              <Button
+                key={item}
+                sx={{ color: "#000" }}
+                onClick={() => redirectHandler(item)}
+              >
+                {item}
+              </Button>
             ))}
           </Box>
         </Toolbar>
